@@ -1,4 +1,4 @@
-let nombreUsuario = prompt ("ingrese su nombre") ;
+let nombreUsuario = prompt ("Ingrese su nombre") ;
 alert ("Hola " + nombreUsuario + ", nos alegra poder ayudarte a elegir el mejor destino!");
 
 //calcular el precio por dia dependiendo
@@ -10,10 +10,12 @@ let cantidadPersonasMayores = parseInt (prompt ("Ingrese la cantidad de personas
 
 let totalDeDias = parseInt(prompt ("Cuantos dias desea reservar?")) ;
 
-function totalHuespedes (cantidadPersonasMayores, cantidadPersonasMenores) {
-    let totalhuespedes = cantidadPersonasMayores + cantidadPersonasMenores;
-    return totalhuespedes;
+let totalhuespedes = 0;
+function sumarPersonas (personasMayores , personasMenores) {
+totalhuespedes = personasMayores + personasMenores; 
+alert ("El total de huéspede es de "+ totalhuespedes + " personas");
 }
+sumarPersonas (cantidadPersonasMayores, cantidadPersonasMenores);
 
 if ((cantidadPersonasMayores + cantidadPersonasMenores) <= 6) {
     alert ("La cantidad de huespedes es adecuada") ;
@@ -21,19 +23,24 @@ if ((cantidadPersonasMayores + cantidadPersonasMenores) <= 6) {
 else {
     alert ("La cantidad de huespedes supera la capacidad de la habitacion") ;
 }
-
+//sólamente abonan la estadía personas mayores a 5 años
 let precioPorPersona = 1500 ;
-function precioPorDia () {
-    let preciodeldia = cantidadPersonasMayores * precioPorPersona;
-    return preciodeldia;
+let precioDelDia = 0;
+function calcularPrecioDia (personasMayores) {
+    precioDelDia = personasMayores * precioPorPersona;
+    alert ("El precio de la estadía por día, abonando en efectivo es $" + precioDelDia);
 }
 
+calcularPrecioDia (cantidadPersonasMayores);
 
-function presupuestoTotal () {
-    let presupuestos =  precioPorDia * totalDeDias;
-    return presupuestos;
+
+let presupuestos = 0;
+
+function calcularTotal (precioDelDia, totalDeDias) {
+    presupuestos =  precioDelDia * totalDeDias;
+    alert ("Presupuesto por " + totalDeDias  + " dias: " + presupuestos);
 }
-alert ("Presupuesto por " + totalDeDias + " dias: " + presupuestoTotal);
+calcularTotal (precioDelDia, totalDeDias);
 
 
 class Habitacion {
